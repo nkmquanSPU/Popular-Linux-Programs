@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #define MAX_FILE_NAME_CHARS 255
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
@@ -10,16 +11,16 @@ int main(int argc, char *argv[])
 	   
 	if(argc < 1)
 	{
-		printf("Usage mycat <filename> \n");
+		printf("Usage /.new_cat <filename.txt> \n");
 		return 0;
 	}
-	else if (argc > 1)
+	else if (argc > 2)
 	{
 		printf("Cannot open more than 1 file at a time");
 		return 0;
 	}
 
-	for(i = 1; i <= argc; i++)
+	for(i = 1; i < argc; i++)
 	{
 		strncpy(file_name, argv[i], MAX_FILE_NAME_CHARS);
 		fp = fopen(file_name, "r"); //open and read from the file
