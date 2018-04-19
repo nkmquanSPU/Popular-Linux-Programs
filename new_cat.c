@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	   
 	if(argc < 1)
 	{
-		printf("Usage ./new_cat <filename.txt> \n");
+		printf("Usage ./new_cat <file_name.txt> \n");
 		return 0;
 	}
 	else if (argc > 2)
