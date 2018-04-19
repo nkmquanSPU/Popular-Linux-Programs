@@ -3,3 +3,4 @@ This is the 2nd line.
 This is the 3rd line.
 This is the 4th line.
 This is the 5th line.
+This is the new line added by echo.
