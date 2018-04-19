@@ -11,12 +11,12 @@ int main(int argc, char *argv[])
 	   
 	if(argc < 1)
 	{
-		printf("Usage /.new_cat <filename.txt> \n");
+		printf("Usage ./new_cat <filename.txt> \n");
 		return 0;
 	}
 	else if (argc > 2)
 	{
-		printf("Cannot open more than 1 file at a time");
+		printf("Cannot open more than 1 file at a time.");
 		return 0;
 	}
 
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
 		if(fp == NULL) //if the file does not exist
 		{
-	        	printf("%s: No such file or directory\n", file_name);
+	        	printf("%s: No such file or directory.\n", file_name);
 			return 0;
 		}
 
