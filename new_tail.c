@@ -24,13 +24,11 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 
-
-	if(argc == 3)
+	if(argc == 3) //get the file name when user specify value of n
 		strncpy(file_name, argv[2], MAX_FILE_NAME_CHARS);
-	else if(argc == 2)
+	else if(argc == 2) //get the file name when user does not specify value of n
 		strncpy(file_name, argv[1], MAX_FILE_NAME_CHARS);
 	
-
        	fp = fopen(file_name, "r");
 	
 	if(fp == NULL) //if the file does not exist
@@ -38,15 +36,15 @@ int main(int argc, char *argv[])
 		printf("%s: No such file or directory.\n", file_name);
 		return 0;
 	}
-
-
+	
+	//count the number of lines in the text file
 	for (c = getc(fp); c != EOF; c = getc(fp))
 		if (c == '\n')
 			count = count + 1; //increment count if we hit new line character
 	
-	fclose(fp);
+	fclose(fp); //close the file 
 
-	fp = fopen(file_name, "r");	
+	fp = fopen(file_name, "r"); //re-open the file	
 	
 	if(argc ==  3) //if user specifies the value for n
 	{
@@ -62,13 +60,11 @@ int main(int argc, char *argv[])
 	{
 		for (i = 0; i < count - default_n; i++)
 			fgets(ignore, sizeof(ignore), fp);
-
 	}
 	
 	while((fgets(line, sizeof(line), fp) != NULL)) //while it is not the end of file
 	{						
-		printf("%s", line);
-				
+		printf("%s", line);				
 	}
 							
 	fclose(fp);
