@@ -1,12 +1,22 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#define MAX_FILE_NAME_CHARS 255
 
 int main(int argc, char *argv[])
 {	
-	
+	char buffer[MAX_FILE_NAME_CHARS];
 	int i;
-	if (argc < 2) //if user does not pass in any [agr]
+	
+	if (argc == 1) //repeat what user types until Ctrl + D is given
+	{
+		while(!feof(stdin))
+		{
+			fgets(buffer, MAX_FILE_NAME_CHARS, stdin);
+			printf("%s", buffer);			
+		}
+	}
+	else if (argc < 2) //if user does not pass in any [agr]
 	{
 		printf("Usage ./new_echo [arg] [arg] ... [arg] \n");
 		return 0;

@@ -6,6 +6,7 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char file_name[MAX_FILE_NAME_CHARS];
+	char buffer[MAX_FILE_NAME_CHARS];
 	char ch; 
 	int i;
 	   
@@ -18,6 +19,14 @@ int main(int argc, char *argv[])
 	{
 		printf("Cannot open more than 1 file at a time.");
 		return 0;
+	}
+	else if (argc == 1) //repeat what user types until Ctrl + D is given
+	{
+		while(!feof(stdin))
+		{
+			fgets(buffer, MAX_FILE_NAME_CHARS, stdin);
+			printf("%s", buffer);			
+		}
 	}
 
 	for(i = 1; i < argc; i++)

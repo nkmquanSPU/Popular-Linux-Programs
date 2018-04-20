@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char file_name[MAX_FILE_NAME_CHARS];
+	char buffer[MAX_FILE_NAME_CHARS];
 	char flag[3];
 	char l_flag[3] = "-l";
 	char c_flag[3] = "-c";
@@ -17,7 +18,15 @@ int main(int argc, char *argv[])
 	int line_count = 0;
 	int char_count = 0;
 	int word_count = 0;
-
+	
+	if (argc == 1) //repeat what user types until Ctrl + D is given
+	{
+		while(!feof(stdin))
+		{
+			fgets(buffer, MAX_FILE_NAME_CHARS, stdin);
+			printf("%s", buffer);		
+		}
+	}
 	if(argc != 3)
 	{
 		printf("Usage ./new_wc [-l|c] [file.txt] \n");

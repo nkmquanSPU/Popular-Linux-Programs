@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	char file_name[MAX_FILE_NAME_CHARS];
 	char line[MAX_FILE_NAME_CHARS];
+	char buffer[MAX_FILE_NAME_CHARS];
 	char user_num_lines[3];
 	char ignore[1024]; //to skip lines when reading from the file
 	char ch;
@@ -18,13 +19,20 @@ int main(int argc, char *argv[])
 	int default_n = 5;
 	int number_of_lines; //number of lines that user wants to print
 	
-	if(argc < 2)
+	if (argc == 1) //repeat what user types until Ctrl + D is given
+	{
+		while(!feof(stdin))
+		{
+			fgets(buffer, MAX_FILE_NAME_CHARS, stdin);
+			printf("%s", buffer);			
+		}
+	}
+	else if(argc < 2)
 	{
 		printf("Usage ./new_tail [-n N] <file_name.txt> \n");
 		return 0;
 	}
-
-	if(argc == 3) //get the file name when user specify value of n
+	else if(argc == 3) //get the file name when user specify value of n
 		strncpy(file_name, argv[2], MAX_FILE_NAME_CHARS);
 	else if(argc == 2) //get the file name when user does not specify value of n
 		strncpy(file_name, argv[1], MAX_FILE_NAME_CHARS);
