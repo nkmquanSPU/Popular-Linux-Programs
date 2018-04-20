@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
 	if(argc != 3)
 	{
-		printf("Usage ./new_tail [-n N] <file_name.txt> \n");
+		printf("Usage ./new_wc [-l|c] [file.txt] \n");
 		return 0;
 	}
 	
