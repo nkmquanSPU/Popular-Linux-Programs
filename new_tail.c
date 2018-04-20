@@ -26,18 +26,18 @@ int main(int argc, char *argv[])
 			fgets(buffer, MAX_FILE_NAME_CHARS, stdin);
 			printf("%s", buffer);			
 		}
-	}
-	else if(argc < 2)
-	{
-		printf("Usage ./new_tail [-n N] <file_name.txt> \n");
 		return 0;
 	}
 	else if(argc == 3) //get the file name when user specify value of n
 		strncpy(file_name, argv[2], MAX_FILE_NAME_CHARS);
 	else if(argc == 2) //get the file name when user does not specify value of n
 		strncpy(file_name, argv[1], MAX_FILE_NAME_CHARS);
-	
-       	fp = fopen(file_name, "r");
+	else
+	{
+		printf("Usage ./new_tail [-n N] <file_name.txt> \n");
+		return 0;
+	}
+    fp = fopen(file_name, "r");
 	
 	if(fp == NULL) //if the file does not exist
 	{

@@ -5,16 +5,12 @@
 
 int main(int argc, char *argv[])
 {	
-	char buffer[MAX_FILE_NAME_CHARS];
 	int i;
 	
 	if (argc == 1) //repeat what user types until Ctrl + D is given
 	{
-		while(!feof(stdin))
-		{
-			fgets(buffer, MAX_FILE_NAME_CHARS, stdin);
-			printf("%s", buffer);			
-		}
+		printf("\n");
+		return 0;
 	}
 	else if (argc < 2) //if user does not pass in any [agr]
 	{

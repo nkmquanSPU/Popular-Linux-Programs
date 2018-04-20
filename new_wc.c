@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 			fgets(buffer, MAX_FILE_NAME_CHARS, stdin);
 			printf("%s", buffer);		
 		}
+		return 0;
 	}
 	if(argc != 3)
 	{
