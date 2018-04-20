@@ -12,11 +12,6 @@ int main(int argc, char *argv[])
 		printf("\n");
 		return 0;
 	}
-	else if (argc < 2) //if user does not pass in any [agr]
-	{
-		printf("Usage ./new_echo [arg] [arg] ... [arg] \n");
-		return 0;
-	}
 	else
 	{
 		for (i = 1; i < argc; i++)
